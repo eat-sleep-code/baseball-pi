@@ -9,6 +9,8 @@ Get the live box score, plays, and batter stats of your favorite MLB team right 
 * [GPIO Male Headers](https://www.adafruit.com/product/3413)
 * [Pi Supply PaPiRus Zero ePaper/eInk pHAT v1.2](https://www.adafruit.com/product/3335)
 
+___
+
 ## Software Requirements
 ### Configure your Pi ###
 * Follow the [installation guide](https://www.raspberrypi.org/downloads/raspbian/) to download and install the latest build of **Raspbian Jessie Lite**.
@@ -24,6 +26,7 @@ Get the live box score, plays, and batter stats of your favorite MLB team right 
 * Run `sudo apt-get dist-upgrade`
 * Run `sudo apt-get upgrade`
 * **OPTIONAL:** If using macOS, run the following to allow easy copying of files to your Raspberry Pi: `sudo apt-get install netatalk`
+___
 
 ### Installing the prerequisites ###
 * Install Python and XML libraries
@@ -35,11 +38,16 @@ Get the live box score, plays, and batter stats of your favorite MLB team right 
 * Setup PaPiRus screen
   * Run `curl -sSL https://pisupp.ly/papiruscode | sudo bash`
 
+___
+
 ### Git and run ###
 * Run `sudo git clone https://github.com/eat-sleep-code/baseball-pi`
 * Run `baseball/baseball.py --Team [MLB Team]`
 
+___
 
+** IMPORTANT ** 
+All game data is considered the property of Major League Baseball Properties, Inc.    This data should be used for personal use only.
 
 
 
