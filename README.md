@@ -2,7 +2,7 @@
 
 How did the old 1970's Chevy jingle go?  *"Baseball, hot dogs, apple pie and Chevrolet, they go together in the good ol’ USA."*   Well what about Baseball and RASBERRY PI?   
 
-Get the live box score, plays, and batter stats of your favorite MLB team right on your desktop:
+Get the live box score, plays, and batter stats of your favorite MLB team[\*](#important-notice) right on your desktop:
 
 ## Hardware Requirements
 * [Raspberry Pi Zero W](https://www.adafruit.com/product/3400)
@@ -47,7 +47,8 @@ ___
 ___
 ___
 
-**IMPORTANT NOTICE:**   All game data is the property of Major League Baseball Properties, Inc.    This code was created for personal use only and does not construe any rights to use this data without the express permission of Major League Baseball Properties, Inc.   Other trademarks used throughout this repository are the property of their respective owners and are used for identification purposes only.   You may not hold the owners and operators (or any associated parties) of the <eat-sleep-code /> websites liable or financially responsible for any damages including—but not limited to—emotional, physical, or financial damages incurred during or after the use of this website or any referenced websites. Use of this website constitutes an agreement to these terms.
+### IMPORTANT NOTICE ###
+All game data is the property of Major League Baseball Properties, Inc.    This code was created for personal use only and does not construe any rights to use this data without the express permission of Major League Baseball Properties, Inc.   Other trademarks used throughout this repository are the property of their respective owners and are used for identification purposes only.   You may not hold the owners and operators (or any associated parties) of the <eat-sleep-code /> websites liable or financially responsible for any damages including—but not limited to—emotional, physical, or financial damages incurred during or after the use of this website or any referenced websites. Use of this website constitutes an agreement to these terms.
 
 
 
