@@ -42,7 +42,7 @@ ___
 
 ### Git and run ###
 * Run `sudo git clone https://github.com/eat-sleep-code/baseball-pi`
-* Run `baseball/baseball.py --Team [MLB Team]`   _for example: `baseball/baseball.py --Team Yankees`_
+* Run `baseball/baseball.py --team [MLB Team]`   _for example: `baseball/baseball.py --team Yankees`_
 
 ___
 ___
