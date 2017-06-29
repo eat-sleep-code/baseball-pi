@@ -37,12 +37,6 @@ def writeToDisplay(text = '', x = 2, y = 2, size = 14, id = 'Default', fontPath 
 
 # ---------------------------------------------------------------------
 
-def refreshDisplay(boxScore = False, pitch = False, play = False, status = False):
-    display.Clear()
-    return
-
-# ---------------------------------------------------------------------
-
 def getCount(howMany, max):
     count = ''
     if int(howMany) == 4 and max == 4:
@@ -139,8 +133,7 @@ def getAtBatTeam(game, atBat):
 # ---------------------------------------------------------------------
 
 def displayBoxScore(game, inning):
-    #display.Clear()
-    refreshDisplay(True, False, False, False)
+    display.Clear()
     if game.status == 'FINAL': 
         writeToDisplay('FINAL', minX, minY, 14, 'BoxScoreInning', fontPath)
     else: 
@@ -166,8 +159,7 @@ def displayBoxScore(game, inning):
 # ---------------------------------------------------------------------
 
 def displayPitch(game, atBat, pitch):
-    #display.Clear()
-    refreshDisplay(False, True, False, False)
+    display.Clear()
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
     
     writeToDisplay('Pitching: ' + atBat.pitcher.first + ' ' + atBat.pitcher.last, minX, 30, 12, 'Pitcher', fontPath)
@@ -185,8 +177,7 @@ def displayPlay(game, atBat, pitch):
     baseDefault = u"\u25C7"
     baseHighlight = u"\u25C6"
     
-    #display.Clear()
-    refreshDisplay(False, False, True, False)
+    display.Clear()
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
     writeToDisplay(atBat.description, minX, 20, 10, 'Description')
 
@@ -234,7 +225,6 @@ def displayInGame(game, inning, atBat, pitch, interval):
 def displayStatus(message, wait):
     display.Clear()
     writeToDisplay(message, minX, minY, 14, 'Status', fontPath)
-    #refreshDisplay(False, False, False, True)
     display.WriteAll()
     time.sleep(wait)
     return 
