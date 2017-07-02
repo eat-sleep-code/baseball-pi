@@ -127,19 +127,19 @@ def displayBoxScore(game, inning):
     else: 
         writeToDisplay(inning.half + ' ' + number.ordinal(inning.number), minX, minY, 14, 'BoxScoreInning', fontPath)
 
-    writeToDisplay('R', 125, 30, 14, 'RunsHeader', fontPath)
-    writeToDisplay('H', 150, 30, 14, 'HitsHeader', fontPath)
-    writeToDisplay('E', 175, 30, 14, 'ErrorsHeader', fontPath)
+    writeToDisplay('R', 125, 35, 14, 'RunsHeader', fontPath)
+    writeToDisplay('H', 150, 35, 14, 'HitsHeader', fontPath)
+    writeToDisplay('E', 175, 35, 14, 'ErrorsHeader', fontPath)
     
-    writeToDisplay(game.team, minX, 50, 14, 'Team', fontPath)
-    writeToDisplay(game.teamRuns, 125, 50, 14, 'TeamRuns', fontPath)
-    writeToDisplay(game.teamHits, 150, 50, 14, 'TeamHits', fontPath)
-    writeToDisplay(game.teamErrors, 175, 50, 14, 'TeamErrors', fontPath)
+    writeToDisplay(game.team, minX, 55, 14, 'Team', fontPath)
+    writeToDisplay(game.teamRuns, 125, 55, 14, 'TeamRuns', fontPath)
+    writeToDisplay(game.teamHits, 150, 55, 14, 'TeamHits', fontPath)
+    writeToDisplay(game.teamErrors, 175, 55, 14, 'TeamErrors', fontPath)
     
-    writeToDisplay(game.opponent, minX, 70, 14, 'Opponent', fontPath)
-    writeToDisplay(game.opponentRuns, 125, 70, 14, 'OpponentRuns', fontPath)
-    writeToDisplay(game.opponentHits, 150, 70, 14, 'OpponentHits', fontPath)
-    writeToDisplay(game.opponentErrors, 175, 70, 14, 'OpponentErrors', fontPath)
+    writeToDisplay(game.opponent, minX, 75, 14, 'Opponent', fontPath)
+    writeToDisplay(game.opponentRuns, 125, 75, 14, 'OpponentRuns', fontPath)
+    writeToDisplay(game.opponentHits, 150, 75, 14, 'OpponentHits', fontPath)
+    writeToDisplay(game.opponentErrors, 175, 75, 14, 'OpponentErrors', fontPath)
     
     display.WriteAll(partial_update=True)
     return
@@ -150,12 +150,13 @@ def displayPitch(game, atBat, pitch):
     display.Clear()
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
     
-    writeToDisplay('Pitching: ' + atBat.pitcher.first + ' ' + atBat.pitcher.last, minX, 30, 12, 'Pitcher', fontPath)
-    writeToDisplay(str(atBat.pitcher.era) + ' ERA', 160, 30, 10, 'PitcherStats', fontPath)
-    writeToDisplay(str(pitch.speed) + ' MPH ' + getPitchType(pitch), minX, 45, 10, 'Pitch', fontPath)
-    writeToDisplay('At Bat: ' + atBat.batter.first + ' ' + atBat.batter.last + ' (#' + str(atBat.batter.number) + ' ' + atBat.batter.position + ')', minX, 60, 12, 'Batter', fontPath)
-    writeToDisplay(str(atBat.batter.avg) + ' AVG, ' + str(atBat.batter.hr) + ' HR', 160, 60, 10, 'BatterStats', fontPath)
-    writeToDisplay(pitch.callDescription, minX, 75, 10, 'Call', fontPath)
+    writeToDisplay('Pitcher: ' + atBat.pitcher.first + ' ' + atBat.pitcher.last, minX, 20, 12, 'Pitcher', fontPath)
+    writeToDisplay(str(atBat.pitcher.era) + ' ERA', 150, 22, 10, 'PitcherStats', fontPath)
+    writeToDisplay(str(pitch.speed) + ' MPH ' + getPitchType(pitch), minX, 35, 10, 'Pitch', fontPath)
+    writeToDisplay('At Bat: ' + atBat.batter.first + ' ' + atBat.batter.last, minX, 50, 12, 'Batter', fontPath)
+    writeToDisplay('(#' + str(atBat.batter.number) + ' ' + atBat.batter.position + ')', 150, 52, 10, 'BatterPosition', fontPath)
+    writeToDisplay(str(atBat.batter.avg) + ' AVG, ' + str(atBat.batter.hr) + ' HR', minX, 65, 10, 'BatterStats', fontPath)
+    writeToDisplay(pitch.callDescription, minX, 80, 10, 'Call', fontPath)
     display.WriteAll(partial_update=True)
     return
 
@@ -167,29 +168,29 @@ def displayPlay(game, atBat, pitch):
     
     display.Clear()
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
-    writeToDisplay(atBat.description, minX, 20, 10, 'Description')
+    writeToDisplay(atBat.description, minX, 17, 10, 'Description')
 
-    writeToDisplay('B', minX, 45, 12, 'BallsLabel', fontPath)
-    writeToDisplay(getCount(atBat.balls, 4), 25, 45, 12, 'BallsCount', dingsPath)
-    writeToDisplay('S', minX, 60, 12, 'StrikesLabel', fontPath)
-    writeToDisplay(getCount(atBat.strikes, 3), 25, 60, 12, 'StrikesCount', dingsPath)
-    writeToDisplay('O', minX, 75, 12, 'OutsLabel', fontPath)
-    writeToDisplay(getCount(atBat.outs, 3), 25, 75, 12, 'OutsCount', dingsPath)
+    writeToDisplay('B', minX, 50, 12, 'BallsLabel', fontPath)
+    writeToDisplay(getCount(atBat.balls, 4), 25, 50, 12, 'BallsCount', dingsPath)
+    writeToDisplay('S', minX, 65, 12, 'StrikesLabel', fontPath)
+    writeToDisplay(getCount(atBat.strikes, 3), 25, 65, 12, 'StrikesCount', dingsPath)
+    writeToDisplay('O', minX, 80, 12, 'OutsLabel', fontPath)
+    writeToDisplay(getCount(atBat.outs, 3), 25, 80, 12, 'OutsCount', dingsPath)
     
     if atBat.onFirst is not None:
-        writeToDisplay(baseHighlight, 170, 60, 20, 'FirstBase', dingsPath)
+        writeToDisplay(baseHighlight, 170, 70, 20, 'FirstBase', dingsPath)
     else:
-        writeToDisplay(baseDefault, 170, 60, 20, 'FirstBase', dingsPath)
+        writeToDisplay(baseDefault, 170, 70, 20, 'FirstBase', dingsPath)
     
     if atBat.onSecond is not None:
-        writeToDisplay(baseHighlight, 150, 45, 20, 'SecondBase', dingsPath)
+        writeToDisplay(baseHighlight, 150, 55, 20, 'SecondBase', dingsPath)
     else:
-        writeToDisplay(baseDefault, 150, 45, 20, 'SecondBase', dingsPath)
+        writeToDisplay(baseDefault, 150, 55, 20, 'SecondBase', dingsPath)
     
     if atBat.onThird is not None:
-        writeToDisplay(baseHighlight, 130, 60, 20, 'ThirdBase', dingsPath)
+        writeToDisplay(baseHighlight, 130, 70, 20, 'ThirdBase', dingsPath)
     else:
-        writeToDisplay(baseDefault, 130, 60, 20, 'ThirdBase', dingsPath)
+        writeToDisplay(baseDefault, 130, 70, 20, 'ThirdBase', dingsPath)
     display.WriteAll(partial_update=True)
     return
     
@@ -213,7 +214,7 @@ def displayInGame(game, inning, atBat, pitch, interval):
 def displayStatus(message, wait):
     display.Clear()
     writeToDisplay(message, minX, minY, 14, 'Status', fontPath)
-    display.WriteAll(partial_update=True)
+    display.WriteAll()
     time.sleep(wait)
     return 
 
@@ -237,7 +238,7 @@ def getPlayer(players, playerID):
     if player.position == 'P':
         player.wins = playerRoot.get('wins')
         player.losses = playerRoot.get('losses')
-        player.era = '{0:.2f}'.format(float(playerRoot.get('era')))
+        player.era = float(playerRoot.get('era'))
     return player
 
 # ---------------------------------------------------------------------
@@ -285,10 +286,7 @@ def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval = 60):
         atBat.balls = atBatRoot.get('b') or 0
         atBat.strikes = atBatRoot.get('s') or 0
         atBat.outs = atBatRoot.get('o') or outs
-        try: 
-            atBat.pitcher = getPlayer(players, atBatPlayerRoot.get('pid'))
-        except:
-            atBat.pitcher = getPlayer(players, atBatRoot.get('pitcher'))
+        atBat.pitcher = getPlayer(players, atBatRoot.get('pitcher'))
         atBat.batter = getPlayer(players, atBatRoot.get('batter'))
         if len(atBatRoot.get('b1')) > 0:
             atBat.onFirst = getPlayer(players, atBatRoot.get('b1'))
@@ -311,7 +309,7 @@ def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval = 60):
         
         displayInGame(game, inning, atBat, pitch, interval)
     except:
-        pass
+       pass
 
     if game.status != 'FINAL':
         return True
