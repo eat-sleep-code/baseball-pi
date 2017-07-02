@@ -12,25 +12,14 @@ from papirus import PapirusTextPos
 now = datetime.datetime.now() 
 fontPath = os.path.dirname(os.path.abspath(__file__)) + '/fonts/benton-sans-regular.ttf'
 dingsPath =os.path.dirname(os.path.abspath(__file__)) + '/fonts/FreeSans.ttf'
-#print(fontPath)
 display = PapirusTextPos(False)
 minX = 0
 minY = 0
 
 # ---------------------------------------------------------------------
 
-def makeNonBreaking(input = ''):
-    output = input.strip()
-    try:
-        output = output.replace(' ', '\xa0')
-    except:
-        pass
-    return output
-
-# ---------------------------------------------------------------------
-
 def writeToDisplay(text = '', x = 2, y = 2, size = 14, id = 'Default', fontPath = fontPath):
-    display.AddText(text, x, y, size, id, fontPath)
+    display.AddText(text=text, x=x, y=y, size=size, Id=id, invert=False, font_path=fontPath)
     print(datetime.datetime.now().strftime('%Y%m%d %H:%M:%S %Z') + ': ' + text)
     print('')
     return
@@ -127,7 +116,6 @@ def getAtBatTeam(game, atBat):
         output = game.team + ' vs.  [' + game.opponent + ']'
     else:
         output = game.team + ' vs. ' + game.opponent
-    output = makeNonBreaking(output)
     return output
 
 # ---------------------------------------------------------------------
@@ -153,7 +141,7 @@ def displayBoxScore(game, inning):
     writeToDisplay(game.opponentHits, 150, 70, 14, 'OpponentHits', fontPath)
     writeToDisplay(game.opponentErrors, 175, 70, 14, 'OpponentErrors', fontPath)
     
-    display.WriteAll()
+    display.WriteAll(partial_update=True)
     return
 
 # ---------------------------------------------------------------------
@@ -168,7 +156,7 @@ def displayPitch(game, atBat, pitch):
     writeToDisplay('At Bat: ' + atBat.batter.first + ' ' + atBat.batter.last + ' (#' + str(atBat.batter.number) + ' ' + atBat.batter.position + ')', minX, 60, 12, 'Batter', fontPath)
     writeToDisplay(str(atBat.batter.avg) + ' AVG, ' + str(atBat.batter.hr) + ' HR', 160, 60, 10, 'BatterStats', fontPath)
     writeToDisplay(pitch.callDescription, minX, 75, 10, 'Call', fontPath)
-    display.WriteAll()
+    display.WriteAll(partial_update=True)
     return
 
 # ---------------------------------------------------------------------
@@ -202,7 +190,7 @@ def displayPlay(game, atBat, pitch):
         writeToDisplay(baseHighlight, 130, 60, 20, 'ThirdBase', dingsPath)
     else:
         writeToDisplay(baseDefault, 130, 60, 20, 'ThirdBase', dingsPath)
-    display.WriteAll()
+    display.WriteAll(partial_update=True)
     return
     
 # ---------------------------------------------------------------------
@@ -225,7 +213,7 @@ def displayInGame(game, inning, atBat, pitch, interval):
 def displayStatus(message, wait):
     display.Clear()
     writeToDisplay(message, minX, minY, 14, 'Status', fontPath)
-    display.WriteAll()
+    display.WriteAll(partial_update=True)
     time.sleep(wait)
     return 
 
