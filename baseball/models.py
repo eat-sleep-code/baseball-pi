@@ -53,7 +53,7 @@ class Player(object):
     rbi = 0
     wins = 0
     losses = 0
-    era = ''
+    era = 0
 
     def make_player (id, first, last, team, number, handed, bats, position, status, avg, hr, rbi, wins, losses, era):
         player = Player()
