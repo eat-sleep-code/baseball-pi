@@ -19,6 +19,8 @@ updateInterval = args.refresh or 15
 now = datetime.datetime.now() 
 #now = datetime.date(2017, 5, 28) # for development purposes only
 
+displayStatus('', 0) # Clear the screen
+
 scoreboardUrl = 'http://gd2.mlb.com/components/game/mlb/year_' + now.strftime('%Y') + '/month_' + now.strftime('%m') + '/day_' + now.strftime('%d') + '/scoreboard.xml'
 scoreboardRequest = requests.get(scoreboardUrl)
 # print(scoreboardRequest.text)
