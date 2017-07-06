@@ -113,7 +113,7 @@ def getAtBatTeam(game, atBat):
     if getTeamAbbreviation(game.team) == atBat.batter.team:
         output = '[' + game.team + '] vs. ' + game.opponent
     elif getTeamAbbreviation(game.opponent) == atBat.batter.team:
-        output = game.team + ' vs.  [' + game.opponent + ']'
+        output = game.team + ' vs. [' + game.opponent + ']'
     else:
         output = game.team + ' vs. ' + game.opponent
     return output
