@@ -1,6 +1,6 @@
 # baseball-pi
 
-How did the old 1970's Chevy jingle go?  *"**Baseball**, hot dogs, **apple pie** and Chevrolet, they go together in the good ol’ USA."*   Well what about **baseball** and **RASBERRY PI**?   
+How did the old 1970's Chevy jingle go?  *"**Baseball**, hot dogs, **apple pie** and Chevrolet, they go together in the good ol’ USA."*   Well what about **baseball** and **RASPBERRY PI**?   
 
 Get the live box score, plays, and batter stats of your favorite MLB team[\*](#important-notice) right on your desktop:
 
