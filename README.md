@@ -2,16 +2,18 @@
 
 How did the old 1970's Chevy jingle go?  *"**Baseball**, hot dogs, **apple pie** and Chevrolet, they go together in the good ol’ USA."*   Well what about **baseball** and **RASPBERRY PI**?   
 
-Get the live box score, plays, and batter stats of your favorite MLB team[\*](#important-notice) right on your desktop:
+Get the live box score, plays, and batter stats of your favorite MLB team[\*](#important-notice) right on your desktop.
 
-## Hardware Requirements
+:baseball: [View images and a short video of this device.](https://eat-sleep-code.com/blog/get-the-live-box-score-plays-and-batter-stats-of-your-favorite-mlb-team-right-on-your-desktop)
+
+## :baseball: Hardware Requirements
 * [Raspberry Pi Zero W](https://www.adafruit.com/product/3400)
 * [GPIO Male Headers](https://www.adafruit.com/product/3413)
 * [Pi Supply PaPiRus Zero ePaper/eInk pHAT v1.2](https://www.adafruit.com/product/3335)
 
 ___
 
-## Software Requirements
+## :baseball: Software Requirements
 ### Configure your Pi ###
 * Follow the [installation guide](https://www.raspberrypi.org/downloads/raspbian/) to download and install the latest build of **Raspbian Jessie Lite**.
 * Run `sudo raspi-config` and complete the following tasks:
@@ -46,7 +48,7 @@ ___
 
 ___
 
-## Known Issues
+## :baseball: Known Issues
 * Some text blocks are wrapped prematurely.   This issue is logged here: https://github.com/PiSupply/PaPiRus/issues/130
 * Python 3.x is not supported.  The PaPiRus Zero ePaper display libraries do not yet support Python 3.x at this time.   
 
