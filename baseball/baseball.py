@@ -49,7 +49,7 @@ if gameCount > 0:
     gamePlayersUrl = 'http://gd2.mlb.com/components/game/mlb/year_' + now.strftime('%Y') + '/month_' + now.strftime('%m') + '/day_' + now.strftime('%d') + '/gid_' + game.id + '/players.xml'
     #print(gamePlayersUrl)
     while requests.get(gamePlayersUrl).status_code != 200:
-        displayStatus('Awaiting player roster', 60)
+        displayStatus('Awaiting player roster', 300)
 
     gamePlayersRequest = requests.get(gamePlayersUrl)
     #print(gamePlayersRequest.text)
@@ -59,7 +59,7 @@ if gameCount > 0:
     gameEventsUrl = 'http://gd2.mlb.com/components/game/mlb/year_' + now.strftime('%Y') + '/month_' + now.strftime('%m') + '/day_' + now.strftime('%d') + '/gid_' + game.id + '/game_events.xml'
     #print(gameEventsUrl)
     while requests.get(gameEventsUrl).status_code != 200:
-        displayStatus('Awaiting game data...', 60)
+        displayStatus('Awaiting game data...', 300)
     
     isRunning = True
     while isRunning == True:
@@ -68,6 +68,3 @@ if gameCount > 0:
         os.execv(__file__, sys.argv)
 else:
     displayStatus('There is no game scheduled for the ' + teamName + ' today.', 60)
-
-
-
