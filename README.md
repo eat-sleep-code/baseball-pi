@@ -44,8 +44,13 @@ ___
 
 ### Git and run ###
 * Run `sudo git clone https://github.com/eat-sleep-code/baseball-pi`
-* Run `baseball/baseball.py --team [MLB Team]`   _for example: `baseball/baseball.py --team Yankees`_
-
+* Run `python baseball/baseball.py --team [MLB Team]`   _for example: `python baseball/baseball.py --team Orioles`_
+#### Setup autorun ####
+* Run `sudo crontab -e`
+* Select `nano`
+* Scroll to the bottom of the file and add these two lines:
+    * `@reboot python baseball/baseball.py --team Orioles &`
+    * `0 1 * * * python baseball/baseball.py --team Orioles &`
 ___
 
 ## Known Issues
