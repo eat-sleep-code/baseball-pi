@@ -23,7 +23,7 @@ ___
   * Setup keyboard
   * Set GPU memory to 16MB to allocate most memory to CPU
   * Set up WiFi using this [configuration guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)
-* Run `sudo nano /etc/apt/sources.list` and uncomment the reference to the source repo [\*\*](https://www.nano-editor.org/dist/v2.8/nano.html)
+* Run `sudo nano /etc/apt/sources.list`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html) and uncomment the reference to the source repo 
 * Run `sudo apt-get update`
 * Run `sudo apt-get dist-upgrade`
 * Run `sudo apt-get upgrade`
@@ -47,8 +47,8 @@ ___
 * Run `python baseball/baseball.py --team [MLB Team]`   _for example: `python baseball/baseball.py --team Orioles`_
 #### Setup autorun ####
 * Run `sudo crontab -e`
-* Select `nano`
-* Scroll to the bottom of the file and add these two lines[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html):
+* Select `nano`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html)
+* Scroll to the bottom of the file and add these two lines:
     * `@reboot python baseball/baseball.py --team Orioles &`
     * `0 1 * * * python baseball/baseball.py --team Orioles &`
 ___
