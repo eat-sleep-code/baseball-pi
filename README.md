@@ -45,7 +45,11 @@ ___
 ### Git and run ###
 * Run `sudo git clone https://github.com/eat-sleep-code/baseball-pi`
 * Run `python baseball/baseball.py --team [MLB Team]`   _for example: `python baseball/baseball.py --team Orioles`_
-#### Setup autorun ####
+
+___
+
+### Autorun ###
+Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 * Run `sudo crontab -e`
 * Select `nano`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html)
 * Scroll to the bottom of the file and add these two lines:
