@@ -18,8 +18,8 @@ minY = 0
 
 # ---------------------------------------------------------------------
 
-def writeToDisplay(text = '', x = 2, y = 2, size = 14, id = 'Default', fontPath = fontPath):
-    display.AddText(text=text, x=x, y=y, size=size, Id=id, invert=False, font_path=fontPath)
+def writeToDisplay(text = '', x=2, y=2, size=14, id='Default', fontPath=fontPath, maxLines=100):
+    display.AddText(text=text, x=x, y=y, size=size, Id=id, invert=False, fontPath=fontPath, maxLines=maxLines)
     print(datetime.datetime.now().strftime('%Y%m%d %H:%M:%S %Z') + ': ' + text)
     print('')
     return
@@ -141,7 +141,7 @@ def displayBoxScore(game, inning):
     writeToDisplay(game.opponentHits, 150, 75, 14, 'OpponentHits', fontPath)
     writeToDisplay(game.opponentErrors, 175, 75, 14, 'OpponentErrors', fontPath)
     
-    display.WriteAll(partial_update=True)
+    display.WriteAll(partialUpdate=True)
     return
 
 # ---------------------------------------------------------------------
@@ -151,13 +151,13 @@ def displayPitch(game, atBat, pitch):
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
     
     writeToDisplay('Pitcher: ' + atBat.pitcher.first + ' ' + atBat.pitcher.last, minX, 20, 12, 'Pitcher', fontPath)
-    writeToDisplay(str(atBat.pitcher.era) + ' ERA', 150, 22, 10, 'PitcherStats', fontPath)
+    writeToDisplay(str(atBat.pitcher.era) + u'\u00A0' + 'ERA', 150, 22, 10, 'PitcherStats', fontPath)
     writeToDisplay(str(pitch.speed) + ' MPH ' + getPitchType(pitch), minX, 35, 10, 'Pitch', fontPath)
     writeToDisplay('At Bat: ' + atBat.batter.first + ' ' + atBat.batter.last, minX, 50, 12, 'Batter', fontPath)
-    writeToDisplay('(#' + str(atBat.batter.number) + ' ' + atBat.batter.position + ')', 150, 52, 10, 'BatterPosition', fontPath)
-    writeToDisplay(str(atBat.batter.avg) + ' AVG, ' + str(atBat.batter.hr) + ' HR', minX, 65, 10, 'BatterStats', fontPath)
+    writeToDisplay('#' + str(atBat.batter.number) + u'-' + atBat.batter.position, 150, 52, 10, 'BatterPosition', fontPath)
+    writeToDisplay(str(atBat.batter.avg) + 'AVG, ' + str(atBat.batter.hr) + ' HR', minX, 65, 10, 'BatterStats', fontPath)
     writeToDisplay(pitch.callDescription, minX, 80, 10, 'Call', fontPath)
-    display.WriteAll(partial_update=True)
+    display.WriteAll(partialUpdate=True)
     return
 
 # ---------------------------------------------------------------------
@@ -168,7 +168,7 @@ def displayPlay(game, atBat, pitch):
     
     display.Clear()
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
-    writeToDisplay(atBat.description, minX, 17, 10, 'Description')
+    writeToDisplay(atBat.description, minX, 17, 10, 'Description', maxLines=3)
 
     writeToDisplay('B', minX, 50, 12, 'BallsLabel', fontPath)
     writeToDisplay(getCount(atBat.balls, 4), 25, 50, 12, 'BallsCount', dingsPath)
@@ -191,7 +191,7 @@ def displayPlay(game, atBat, pitch):
         writeToDisplay(baseHighlight, 130, 70, 20, 'ThirdBase', dingsPath)
     else:
         writeToDisplay(baseDefault, 130, 70, 20, 'ThirdBase', dingsPath)
-    display.WriteAll(partial_update=True)
+    display.WriteAll(partialUpdate=True)
     return
     
 # ---------------------------------------------------------------------
@@ -243,7 +243,7 @@ def getPlayer(players, playerID):
 
 # ---------------------------------------------------------------------
 
-def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval = 60):
+def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval=60):
     try:
         inning = Inning()
         atBat = AtBat()
