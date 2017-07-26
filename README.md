@@ -58,7 +58,6 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 ___
 
 ## Known Issues
-* Some text blocks are wrapped prematurely.   This issue is logged here: https://github.com/PiSupply/PaPiRus/issues/130
 * Python 3.x is not supported.  The PaPiRus Zero ePaper display libraries do not yet support Python 3.x at this time.   
 
 ___
