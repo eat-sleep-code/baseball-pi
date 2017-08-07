@@ -58,7 +58,7 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 ___
 
 ## Known Issues
-* Python 3.x is not supported.  The PaPiRus Zero ePaper display libraries do not yet support Python 3.x at this time.   
+See issues list[https://github.com/eat-sleep-code/baseball-pi/issues].
 
 ___
 ___
