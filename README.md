@@ -58,7 +58,7 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 ___
 
 ## Known Issues
-See issues list[https://github.com/eat-sleep-code/baseball-pi/issues].
+See [issues list](https://github.com/eat-sleep-code/baseball-pi/issues).
 
 ___
 ___
