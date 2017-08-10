@@ -53,8 +53,8 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 * Run `sudo crontab -e`
 * Select `nano`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html)
 * Scroll to the bottom of the file and add these two lines:
-    * `@reboot python baseball/baseball.py --team Orioles &`
-    * `0 1 * * * python baseball/baseball.py --team Orioles &`
+    * `@reboot sudo python baseball/baseball.py --team Orioles &`
+    * `0 1 * * * sudo python baseball/baseball.py --team Orioles &`
 ___
 
 ## Known Issues
