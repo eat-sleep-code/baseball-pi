@@ -26,7 +26,6 @@ ___
 * Run `sudo nano /etc/apt/sources.list`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html) and uncomment the reference to the source repo 
 * Run `sudo apt-get update`
 * Run `sudo apt-get dist-upgrade`
-* Run `sudo apt-get upgrade`
 * **OPTIONAL:** If using macOS, run the following to allow easy copying of files to your Raspberry Pi: `sudo apt-get install netatalk`
 ___
 
