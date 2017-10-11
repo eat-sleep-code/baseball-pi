@@ -20,8 +20,8 @@ minY = 0
 
 def writeToDisplay(text = '', x=2, y=2, size=14, id='Default', fontPath=fontPath, maxLines=100):
     display.AddText(text=text, x=x, y=y, size=size, Id=id, invert=False, fontPath=fontPath, maxLines=maxLines)
-    print(datetime.datetime.now().strftime('%Y%m%d %H:%M:%S %Z') + ': ' + text)
-    print('')
+    #print(datetime.datetime.now().strftime('%Y%m%d %H:%M:%S %Z') + ': ' + text)
+    #print('')
     return
 
 # ---------------------------------------------------------------------
@@ -151,10 +151,10 @@ def displayPitch(game, atBat, pitch):
     writeToDisplay(getAtBatTeam(game, atBat), minX, minY, 14, 'Versus', fontPath)
     
     writeToDisplay('Pitcher: ' + atBat.pitcher.first + ' ' + atBat.pitcher.last, minX, 20, 12, 'Pitcher', fontPath)
-    writeToDisplay(str(atBat.pitcher.era) + u'\u00A0' + 'ERA', 150, 22, 10, 'PitcherStats', fontPath)
+    writeToDisplay(str(atBat.pitcher.era) + ' ' + 'ERA', 150, 22, 10, 'PitcherStats', fontPath)
     writeToDisplay(str(pitch.speed) + ' MPH ' + getPitchType(pitch), minX, 35, 10, 'Pitch', fontPath)
     writeToDisplay('At Bat: ' + atBat.batter.first + ' ' + atBat.batter.last, minX, 50, 12, 'Batter', fontPath)
-    writeToDisplay('#' + str(atBat.batter.number) + u'-' + atBat.batter.position, 150, 52, 10, 'BatterPosition', fontPath)
+    writeToDisplay('#' + str(atBat.batter.number) + ' ' + atBat.batter.position, 150, 52, 10, 'BatterPosition', fontPath)
     writeToDisplay(str(atBat.batter.avg) + 'AVG, ' + str(atBat.batter.hr) + ' HR', minX, 65, 10, 'BatterStats', fontPath)
     writeToDisplay(pitch.callDescription, minX, 80, 10, 'Call', fontPath)
     display.WriteAll(partialUpdate=True)
@@ -218,7 +218,7 @@ def displayStatus(message, wait):
     time.sleep(wait)
     return 
 
- # --------------------------------------------------------------------
+# --------------------------------------------------------------------
 
 def getPlayer(players, playerID):
     playerRoot = players.xpath("/game/team/player[@id='" + playerID + "']")[0]
