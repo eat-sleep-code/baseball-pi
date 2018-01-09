@@ -15,7 +15,7 @@ ___
 
 ## Software Requirements
 ### Configure your Pi ###
-* Follow the [installation guide](https://www.raspberrypi.org/downloads/raspbian/) to download and install the latest build of **Raspbian Jessie Lite**.
+* Follow the [installation guide](https://www.raspberrypi.org/downloads/raspbian/) to download and install the latest build of **Raspbian Stretch Lite**.
 * Run `sudo raspi-config` and complete the following tasks:
   * Expand file system
   * Setup locale
