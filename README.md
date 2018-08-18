@@ -55,7 +55,7 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 Description=Baseball Pi service
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/baseball/baseball.py --team Orioles
+ExecStart=/usr/bin/python2 /home/pi/baseball/baseball.py --team Orioles
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
