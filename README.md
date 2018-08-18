@@ -49,11 +49,25 @@ ___
 
 ### Autorun ###
 Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
-* Run `sudo crontab -e`
-* Select `nano`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html)
-* Scroll to the bottom of the file and add these two lines:
-    * `@reboot sudo python baseball/baseball.py --team Orioles &`
-    * `0 1 * * * sudo python baseball/baseball.py --team Orioles &`
+* Run `sudo nano /etc/systemd/system/baseball.service`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html) and enter the following lines (be sure to specify your favorite team!): 
+````
+[Unit]
+Description=Baseball Pi service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/baseball/baseball.py --team Orioles
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=Baseball Pi
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+````
+* Run `sudo systemctl enable baseball.service`
+* Run `sudo systemctl start baseball.service`
+* Run `sudo reboot`
 ___
 
 ## Known Issues
