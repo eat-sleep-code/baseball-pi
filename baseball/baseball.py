@@ -17,21 +17,21 @@ teamName = args.team or 'D-backs'
 updateInterval = args.refresh or 15
 
 now = datetime.datetime.now() 
-#now = datetime.date(2017, 5, 28) # for development purposes only
+#now = datetime.date(2019, 2, 23) # for development purposes only
 
 displayStatus('', 0) # Clear the screen
 
 scoreboardUrl = 'http://gd2.mlb.com/components/game/mlb/year_' + now.strftime('%Y') + '/month_' + now.strftime('%m') + '/day_' + now.strftime('%d') + '/scoreboard.xml'
 scoreboardRequest = requests.get(scoreboardUrl)
-# print(scoreboardRequest.text)
+#print(scoreboardRequest.text)
 scoreboardDocumentBytes = bytes(bytearray(scoreboardRequest.text, encoding='utf-8'))
 scoreboardDocumentXML = etree.XML(scoreboardDocumentBytes)
 
 gameCount = scoreboardDocumentXML.xpath("count(/scoreboard/*/team[@name='" + teamName + "'])")
-#print (gameCount)
+#print(gameCount)
 if gameCount > 0:
     gameInitRoot = scoreboardDocumentXML.xpath("/scoreboard/*/team[@name='" + teamName + "']")[0].getparent()
-    # print(etree.tostring(gameRoot))
+    #print(etree.tostring(gameInitRoot))
     game = Game()
 
     if gameCount > 1:

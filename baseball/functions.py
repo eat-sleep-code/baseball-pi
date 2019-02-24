@@ -232,7 +232,10 @@ def getPlayer(players, playerID):
     player.bats = playerRoot.get('bats')
     player.position = playerRoot.get('position')
     player.status = playerRoot.get('status')
-    player.avg = '{0:.3f}'.format(float(playerRoot.get('avg')))
+    average = playerRoot.get('avg')
+    if average.isdigit() == False:
+        average = 0
+    player.avg = '{0:.3f}'.format(float(average))
     player.hr = playerRoot.get('hr')
     player.rbi = playerRoot.get('rbi')
     if player.position == 'P':
@@ -288,11 +291,11 @@ def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval=60):
         atBat.outs = atBatRoot.get('o') or outs
         atBat.pitcher = getPlayer(players, atBatRoot.get('pitcher'))
         atBat.batter = getPlayer(players, atBatRoot.get('batter'))
-        if len(atBatRoot.get('b1')) > 0:
+        if atBatRoot.get('b1'):
             atBat.onFirst = getPlayer(players, atBatRoot.get('b1'))
-        if len(atBatRoot.get('b2')) > 0:
+        if atBatRoot.get('b2'):
             atBat.onSecond = getPlayer(players, atBatRoot.get('b2'))
-        if len(atBatRoot.get('b3')) > 0:
+        if atBatRoot.get('b3'):
             atBat.onThird = getPlayer(players, atBatRoot.get('b3'))
         atBat.description = atBatRoot.get('des') or ''
         atBat.guid = atBatRoot.get('play_guid') or ''
@@ -309,7 +312,7 @@ def getLatestEvent(game, eventsUrl, players, scoreboardUrl, interval=60):
         
         displayInGame(game, inning, atBat, pitch, interval)
     except:
-       pass
+        pass
 
     if game.status != 'FINAL':
         return True
