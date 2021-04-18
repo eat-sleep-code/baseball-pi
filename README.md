@@ -13,41 +13,44 @@ Get the live box score, plays, and batter stats of your favorite MLB team[\*](#i
 
 ___
 
-## Software Requirements
-### Configure your Pi ###
-* Follow the [installation guide](https://www.raspberrypi.org/downloads/raspbian/) to download and install the latest build of **Raspbian Stretch Lite**.
-* Run `sudo raspi-config` and complete the following tasks:
-  * Expand file system
-  * Setup locale
-  * Setup timezone
-  * Setup keyboard
-  * Set GPU memory to 16MB to allocate most memory to CPU
-  * Set up WiFi using this [configuration guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)
+---
+## Getting Started
+
+- Use [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) to:
+  - Set the Memory Split value to a value of 16MB
+  - Set up your WiFi connection
+- Connect the Raspberry Pi HQ Camera to your Raspberry Pi
+
 * Run `sudo nano /etc/apt/sources.list`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html) and uncomment the reference to the source repo 
-* Run `sudo apt-get update`
-* Run `sudo apt-get dist-upgrade`
-* **OPTIONAL:** If using macOS, run the following to allow easy copying of files to your Raspberry Pi: `sudo apt-get install netatalk`
-___
-
-### Installing the prerequisites ###
-* Install Python and XML libraries
-  * Run `sudo apt-get install python3 ipython3 ipython python3-pip python-pip python3-rpi.gpio python-rpi.gpio libxml2-dev libxslt-dev python-dev python3-lxml python-lxml`
-  * Run `sudo apt-get build-dep python3-lxml`
-* Install the LXML and Natural packages:
-  * Run `sudo pip install lxml`
-  * Run `sudo pip install natural`
-* Setup PaPiRus screen
-  * Run `curl -sSL https://pisupp.ly/papiruscode | sudo bash`
 
 ___
 
-### Git and run ###
-* Run `sudo git clone https://github.com/eat-sleep-code/baseball-pi`
-* Run `python baseball/baseball.py --team [MLB Team]`   _for example: `python baseball/baseball.py --team Orioles`_
+## Installation
+* Installation of the program, any software prerequisites, as well as the e-ink display drivers can be completed with the following two-line install script.
+
+```
+wget -q https://raw.githubusercontent.com/eat-sleep-code/baseball-pi/master/install-baseball.sh -O ~/install-baseball.sh
+sudo chmod +x ~/install-baseball.sh && ~/install-baseball.sh
+
+```
 
 ___
 
-### Autorun ###
+## Usage Example ##
+
+```
+baseball --team Orioles
+```
+___
+
+## Options ##
+
+Options
+* --team : Set the MLB team name (default: D-backs)
+* --refresh : Set the refresh rate in seconds (default: 15)
+
+## Autorun ##
+
 Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 * Run `sudo nano /etc/systemd/system/baseball.service`[\*\*](https://www.nano-editor.org/dist/v2.8/nano.html) and enter the following lines (be sure to specify your favorite team!): 
 ````
@@ -55,7 +58,7 @@ Want to start Baseball Pi every time you boot your Raspberry Pi?  Here is how!
 Description=Baseball Pi service
 
 [Service]
-ExecStart=/usr/bin/python2 /home/pi/baseball/baseball.py --team Orioles
+ExecStart=/usr/bin/python3 /home/pi/baseball/baseball.py --team Orioles
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
@@ -68,10 +71,6 @@ WantedBy=multi-user.target
 * Run `sudo systemctl enable baseball.service`
 * Run `sudo systemctl start baseball.service`
 * Run `sudo reboot`
-___
-
-## Known Issues
-See [issues list](https://github.com/eat-sleep-code/baseball-pi/issues).
 
 ___
 ___
