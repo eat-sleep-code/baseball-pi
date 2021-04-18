@@ -37,6 +37,8 @@ sudo rm -Rf PaPiRus
 sudo curl -sSL https://pisupp.ly/papiruscode | sudo bash
 
 echo ''
+cd ~
+sudo rm install-baseball.sh
 echo -e '\033[32m-------------------------------------------------------------------------- \033[0m'
 echo -e '\033[32mInstallation completed. \033[0m'
 echo ''
