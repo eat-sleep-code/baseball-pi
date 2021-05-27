@@ -11,7 +11,7 @@ echo ''
 echo -e '\033[93mInstalling prerequisites... \033[0m'
 sudo apt install -y git python3 ipython3 python3-pip python3-rpi.gpio libxml2-dev libxslt-dev python-dev python3-lxml
 sudo apt build-dep python3-lxml
-sudo pip3 install lxml natural
+sudo pip3 install lxml natural requests
 
 echo ''
 echo -e '\033[93mInstalling Baseball Pi... \033[0m'
